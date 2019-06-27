@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio01 - Avanade Academy - GAMA</title>
+</head>
+<body>
+    
+    <script>
+        function sumAll(array_n) {
+            var first_n = array_n[0];
+            var last_n  = array_n[array_n.length -1];
+            var switch_ = 0;
+            
+            if (first_n > last_n) {
+                switch_ = first_n;
+                first_n = last_n;
+                last_n = switch_;
+            }
+            
+           sum = 0;
+           for(i = first_n; i <= last_n; i++) {
+                sum += i;
+           }
+           return sum;
+        }
+
+        console.log(sumAll([1, 4]));
+        console.log(sumAll([4, 1]));
+        console.log(sumAll([5,10]));
+        console.log(sumAll([10, 5]));
+    </script>
+</body>
+</html>
