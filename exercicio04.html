@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio04 - Avanade Academy - GAMA</title>
+    <style>
+        body {
+            width: 900px;
+        }
+
+        .container {
+           margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <button>OK</button>
+        <div id="content"></div>
+    </div>
+
+    <script>
+        var btnElement = document.getElementsByTagName('button')[0];
+        var divContent = document.getElementById('content');        
+        
+        btnElement.addEventListener('click', function() {
+            divContent.innerHTML = '';
+
+            var inputElement = document.getElementsByTagName('input')[0].value; 
+            var h1Element = document.createElement('h1');
+            var content = document.createTextNode(inputElement);  
+            
+            h1Element.appendChild(content);                      
+            divContent.appendChild(h1Element);                     
+        });
+    
+    </script>
+</body>
+</html>

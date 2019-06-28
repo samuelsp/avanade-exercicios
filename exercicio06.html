@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio06 - Avanade Academy - GAMA</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text">
+        <div id="content"></div>
+    </div>
+    <script>
+        var fruits = ['banana', 'maca', 'manga', 'pessego', 'uva'];
+
+        var inputElement = document.getElementsByTagName('input')[0];
+        var divElement = document.getElementsByTagName('div')[1];
+                
+        inputElement.addEventListener('change', function() {
+            var content = inputElement.value.toLocaleLowerCase();
+            divElement.innerHTML = '';
+            //console.log(content);
+            if(fruits.indexOf(content) !== -1) {
+                var imgElement = document.createElement('img');
+                var name = fruits[fruits.indexOf(content)];
+                imgElement.src = name + '.png';
+                imgElement.style.width = "300px";
+                //imgElement.style.height = "300px";                             
+                divElement.appendChild(imgElement);                
+            }
+                 
+        })
+        
+    </script>
+</body>
+</html>

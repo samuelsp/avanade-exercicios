@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Professor - Avanade Academy - GAMA</title>
+</head>
+<body>
+    <script>
+        var Pessoa = function(nome, idade) {
+            this.nome = nome;
+            this.idade = idade;            
+        }
+
+        Pessoa.prototype.falaNome = function() {
+            console.log("Meu nome é: " + this.nome);
+        }
+
+        var PessoaFisica = function(nome, idade) {
+            Pessoa.call(this, nome, idade);
+            this.cpf = cpf;
+        };
+
+        var Professor = function(nome, idade) {
+            Pessoa.call(this, nome, idade);
+            
+            this.ensinar = materia;          
+        }
+        
+        PessoaFisica.prototype = new Pessoa();
+        PessoaFisica.prototype.constructor = PessoaFisica;
+
+        PessoaFisica.prototype.dizCpf = function() {
+            console.log("Meu cpf é: " + this.cpf);
+        };
+
+        Professor.prototype = new Pessoa();
+        Professor.prototype.constructor = Professor;
+
+        Professor.prototype.ensinaMateria = function(materia) {
+            console.log("Eu ensino a matéria: " + this.ensinar);
+        }
+
+        var professor = new Professor('Diego', 26);
+        
+        
+    </script>
+</body>
+</html>

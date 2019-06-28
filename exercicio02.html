@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio02 - Avanade Academy - GAMA</title>
+    <h1>Exercicio 02</h1>
+</head>
+<body>
+    <script>
+        function destroyer(array) {
+            var args = Array.from(arguments);
+
+            if(args.length > 1) {
+                var filtr = [];
+                for(var i = 0; i < array.length; i++){
+                    var valor = array[i];
+                    if(args.indexOf(valor) === -1) filtr.push(valor);
+                }
+                return filtr;
+            }
+            
+           return array;
+
+            //console.log(array);
+            //console.log(destr);
+            //console.log(resul);
+            console.log(filtr);
+            //return resul;          
+                            
+        }
+
+        
+
+        destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+        //console.log(destroyer([1,2], 2, 3));
+
+    </script>
+</body>
+</html>

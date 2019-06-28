@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio03 - Avanade Academy - GAMA</title>
+</head>
+<body>
+    <h1>Exercicio03</h1>
+    <script>
+        function dropElements(array, validate){
+            var filtr = [];
+            for (var index = 0; index < array.length; index++) {
+                var include = validate(array[index]);
+                if(include) filtr.push(array[index]);                 
+            }
+            return filtr;          
+         }
+        
+        console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3})); // [3, 4]
+    </script>
+</body>
+</html>

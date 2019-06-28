@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio08 - Avanade Academy - GAMA</title>
+</head>
+<body>
+    <div class="container">
+        <button>Sortear Fruta</button>
+        <div id="content"></div>
+    </div>
+    <script>
+        var selected = []
+        
+        var btnElement = document.getElementsByTagName('button')[0];
+        var divElement = document.getElementsByTagName('div')[1];         
+        
+        var arrayFruits = [
+                            'banana', 
+                            'goiaba',
+                            'laranja', 
+                            'maca', 
+                            'manga', 
+                            'morango',
+                            'pessego',
+                            'tangerina',
+                            'tomate',
+                            'uva'
+                          ];
+
+        function Fruits(name) {
+            this.name = name;
+            this.source = name + '.png';
+        }
+
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * arrayFruits.length);
+        }
+        
+        btnElement.addEventListener('click', function() {
+            divElement.innerHTML = '';
+
+            if(selected.length == 10) selected = [];
+
+            do {
+                    
+                var picked = generateRandomNumber(); 
+                
+            } while(selected.indexOf(picked) != -1);
+
+            selected.push(picked);  
+            //console.log(selected);                        
+
+            var fruit = new Fruits(arrayFruits[picked]);
+                    
+            var img = document.createElement('img');
+            img.src = fruit.source;
+            img.style.width = '400px';
+
+            divElement.appendChild(img);          
+            
+        })
+
+    </script>
+</body>
+</html>

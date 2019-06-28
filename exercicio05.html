@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercicio05 - Avanade Academy - GAMA</title>
+    <style>
+        body {
+            width: 900px;
+        }
+        .container {
+           margin: 0 auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text">        
+        <div></div>
+    </div>
+
+    <script>
+        var inputElement = document.getElementsByTagName('input')[0];
+        var divElement = document.getElementsByTagName('div')[1];        
+        
+        inputElement.addEventListener('input', function() {               
+            divElement.innerHTML = inputElement.value;                              
+        });
+        
+
+    </script>
+</body>
+</html>
