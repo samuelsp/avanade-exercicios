@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pokémon - Avanade Academy - GAMA</title>
+    <link rel="stylesheet" href="pokemon.css">
+</head>
+<body>
+    <section class="container column">
+        <div class="item">
+            <h1><img id='pokeball' src='pokeball.png'>PokeAPI</h1>
+            <input type="text" placeholder="Enter the name of the Pokémon"><br>
+            <button>Search</button>
+        </div>                   
+        <div class="item"> 
+            <h2>Pokémon</h2>           
+            <div id="imagePokemon"></div>
+            <div id='ability'></div>            
+        </div>
+    </section>   
+    <script>                    
+        var btnElement = document.getElementsByTagName('button')[0];                                  
+        var divImagePokemon = document.getElementById('imagePokemon');
+        var divAbilityPokemon = document.getElementById('ability');
+        var inputElement = document.getElementsByTagName('input')[0];
+        
+        btnElement.addEventListener('click', function() {            
+            inputValueElement = inputElement.value; 
+            inputValueElement = inputValueElement.toLocaleLowerCase();
+            
+            if(inputValueElement != '') {                
+                divAbilityPokemon.style.backgroundColor = 'white';
+                divAbilityPokemon.style.padding = '10px';
+                divAbilityPokemon.style.border = "4px solid orange";
+                            
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var json = JSON.parse(xhttp.responseText);
+                        var address = json['sprites'].front_default;
+                        divAbilityPokemon.style.display = 'block';
+                        divImagePokemon.style.display = 'block';
+                        divImagePokemon.innerHTML = "<img src=" + address + ">";
+                        
+                        var id = json['id'];
+                        
+                        xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if(this.readyState == 4 && this.status == 200) {
+                                json = JSON.parse(xhttp.responseText);
+                                var effect = json['effect_entries'];
+                                divAbilityPokemon.innerHTML = effect[0].effect;
+                                divAbilityPokemon.style.textAlign = 'justify';
+                            }
+                        }
+
+                        url = 'https://pokeapi.co/api/v2/ability/' + id + '/';
+                        xhttp.open('GET', url);
+                        xhttp.send();
+                    }
+
+                    else if (this.readyState == 4 && this.status == 404) {
+                        divAbilityPokemon.style.display = 'block';
+                        divImagePokemon.style.display = 'none';
+                        divAbilityPokemon.style.backgroundColor = 'white';
+                        divAbilityPokemon.style.padding = '10px';
+                        divAbilityPokemon.style.border = "4px solid orange";
+                        divAbilityPokemon.style.color = 'black';                        
+                        divAbilityPokemon.style.textAlign = 'center';
+                        divAbilityPokemon.innerHTML = 'Sorry! It was not found in our database!';
+                    } 
+            };
+
+            var url = 'https://pokeapi.co/api/v2/pokemon/' + inputValueElement + "/";
+            xhttp.open('GET', url);
+            xhttp.send();
+            
+            }
+
+            else {                
+                alert('Text field can not be empty!');
+                divAbilityPokemon.style.display = 'none';
+                divImagePokemon.style.display = 'none';
+            }
+        })
+
+    </script>
+</body>
+</html>

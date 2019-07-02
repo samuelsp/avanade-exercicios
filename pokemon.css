@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
+body {
+    background: #ffffe6;
+
+}
+
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+    letter-spacing: 3px;
+    color: orange;
+    font-size: 2em;  
+    font-weight: 900;  
+}
+
+h2 {
+    color: red;
+}
+
+#pokeball {
+    width: 60px;
+    margin-right: 10px;
+    height: 55px;
+}
+
+
+input[type=text] {
+    width: 700px;
+    height: 35px;
+    border-color: white;
+    border-radius: 1px;
+    box-shadow: 1px 2px 2px black;
+    text-align: center;
+    font-size: 15px;
+    color: grey;
+    text-transform: uppercase;
+}
+
+button {
+    width: 280px;
+    height: 40px;
+    margin-top: 15px;
+    background-color: orange;
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.column {
+	flex-direction: column;
+}
+
+/* Flex Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+}
+/* Flex Item */
+.item {
+	/* O flex: 1; é necessário para que cada item se expanda ocupando o tamanho máximo do container. */
+	flex: 1;
+	margin: 5px;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+#ability {
+    font-size: 14px;
+    text-align: justify;   
+}
+
+#imagePokemon img {
+    margin-top: -10px;
+    width: 200px;
+    height: 200px;    
+}
